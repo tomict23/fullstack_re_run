@@ -1,0 +1,80 @@
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+html {
+  box-shadow: 0 0 500px 500px black inset, 0 0 1px 0.2px rgb(255, 255, 255, 0.5);
+  /* background-image: linear-gradient(rgb(46, 46, 46), rgb(88, 47, 161)); */
+  height: 98%;
+  font-size: 10px;
+}
+
+body {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#left-top {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  width: 100vw;
+  height: 5%;
+  /* outline: 1px solid white; */
+  z-index: 50;
+  display: flex;
+  justify-content: left;
+}
+.button {
+  z-index: 0;
+  position: relative;
+  /* margin: 1px; */
+  margin-left: 10px;
+  width: 100px;
+  /* height: 30px; */
+  font-size: 1.2em;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(12, 242, 214, 0);
+  border-radius: 5px 30px 30px 5px;
+  padding: 14px;
+  border-width: 0px;
+  box-shadow: 0 0 20px 10px rgb(255, 255, 255) inset, 0 0 1px 0.2px rgb(255, 255, 255, 1);
+  transition: background-color 1s, margin-left 1s;
+}
+
+#button-left {
+}
+/* #left-middle {
+  position: absolute;
+  left: 0px;
+  width: 33%;
+  height: 33%;
+  outline: 1px solid white;
+  z-index: 50;
+} */
+/* #left-bottom {
+  position: absolute;
+  bottom: -5px;
+  left: 0px;
+  width: 33%;
+  height: 33%;
+  outline: 1px solid white;
+  z-index: 50;
+} */
+
+canvas {
+  height: 100%;
+  position: fixed;
+  background-attachment: fixed;
+  z-index: 0;
+}

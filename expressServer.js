@@ -14,7 +14,7 @@ server.use(cors());
 const path = require("path");
 const pool = require("./db_conn");
 
-// server.use(express.static("./game-abyss"));
+server.use(express.static("./game-abyss"));
 
 const port = process.env.PORT || 8000; // port that Express will listen to for requests
 
@@ -47,7 +47,7 @@ server.get("/", (req, res, next) => {
   //       return res.send(data.rows);
   //     }
   //   );
-  res.sendFile(path.join(__dirname, "./game-abyss/index.html"));
+  res.send("login page goes here");
 });
 
 server.get("/abyssgame", (req, res, next) => {
@@ -60,7 +60,7 @@ server.get("/abyssgame", (req, res, next) => {
   //     console.log(rows);
   //     return res.send(rows);
   //   });
-  res.send("game html goes here /abyssgame");
+  res.sendFile(path.join(__dirname, "./game-abyss/abyssgame.html"));
 });
 
 // GET request to /company - Read all the companies
