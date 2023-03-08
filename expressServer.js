@@ -14,7 +14,7 @@ server.use(cors());
 const path = require("path");
 const pool = require("./db_conn");
 
-server.use(express.static("./game-abyss"));
+// server.use(express.static("./game-abyss"));
 
 const port = process.env.PORT || 8000; // port that Express will listen to for requests
 

@@ -1,5 +1,5 @@
 const { Pool } = require("pg");
-const pool = require("../db_conn");
+const pool = require("./db_conn");
 const DATABASE_URL = process.env.DATABASE_URL;
 
 pool.query(
