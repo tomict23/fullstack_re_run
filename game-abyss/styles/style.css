@@ -23,29 +23,30 @@ body {
   height: 100%;
 }
 
-#left-top {
+#nav-bar {
   position: absolute;
-  top: 10px;
+  bottom: 10px;
   left: 0px;
   width: 100vw;
-  height: 5%;
+  height: 10%;
   /* outline: 1px solid white; */
   z-index: 50;
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
+
 .button {
   z-index: 0;
   position: relative;
   /* margin: 1px; */
-  margin-left: 10px;
+  /* margin-left: 10px; */
   width: 100px;
   /* height: 30px; */
   font-size: 1.2em;
   cursor: pointer;
   color: white;
   background-color: rgb(12, 242, 214, 0);
-  border-radius: 5px 30px 30px 5px;
+  /* border-radius: 5px 30px 30px 5px; */
   padding: 14px;
   border-width: 0px;
   box-shadow: 0 0 20px 10px rgb(255, 255, 255) inset, 0 0 1px 0.2px rgb(255, 255, 255, 1);
@@ -53,24 +54,50 @@ body {
 }
 
 #button-left {
+  border-radius: 30px 5px 5px 5px;
+  height: 80px;
+  bottom: 10px;
 }
-/* #left-middle {
+#button-middle {
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 610px;
+  margin-right: 610px;
+  bottom: 10px;
+}
+#button-right {
+  border-radius: 5px 30px 5px 5px;
+  height: 80px;
+  bottom: 10px;
+}
+#kill-count {
   position: absolute;
+  font-family: "Press Start 2P", cursive;
+  font-size: 2em;
+  padding: 10px;
   left: 0px;
+  top: 0px;
   width: 33%;
-  height: 33%;
-  outline: 1px solid white;
+  height: 11%;
+  /* outline: 1px solid white; */
   z-index: 50;
-} */
-/* #left-bottom {
+}
+#game-over {
   position: absolute;
-  bottom: -5px;
-  left: 0px;
-  width: 33%;
-  height: 33%;
-  outline: 1px solid white;
-  z-index: 50;
-} */
+  font-family: "Press Start 2P", cursive;
+  font-size: 8em;
+  color: red;
+  /* outline: 1px solid white; */
+  z-index: 49;
+}
+#RKey {
+  position: absolute;
+  bottom: 302px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 2em;
+  color: red;
+  /* outline: 1px solid white; */
+  z-index: 49;
+}
 
 canvas {
   height: 100%;

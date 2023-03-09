@@ -1,4 +1,17 @@
 /*
+ ██████╗  ██████╗ ███╗   ███╗    ██╗   ██╗ █████╗ ██████╗ ███████╗
+ ██╔══██╗██╔═══██╗████╗ ████║    ██║   ██║██╔══██╗██╔══██╗██╔════╝
+ ██║  ██║██║   ██║██╔████╔██║    ██║   ██║███████║██████╔╝███████╗
+ ██║  ██║██║   ██║██║╚██╔╝██║    ╚██╗ ██╔╝██╔══██║██╔══██╗╚════██║
+ ██████╔╝╚██████╔╝██║ ╚═╝ ██║     ╚████╔╝ ██║  ██║██║  ██║███████║
+ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝      ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+*/
+let killCounter = $("#kill-count");
+console.log(killCounter);
+let GAMEOVER = $("#game-over");
+let RKeyMessage = $("#RKey");
+
+/*
  ███████╗ ██████╗███████╗███╗   ██╗███████╗    ███████╗███████╗████████╗██╗   ██╗██████╗ 
  ██╔════╝██╔════╝██╔════╝████╗  ██║██╔════╝    ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗
  ███████╗██║     █████╗  ██╔██╗ ██║█████╗      ███████╗█████╗     ██║   ██║   ██║██████╔╝
@@ -161,7 +174,7 @@ function animate() {
 
   let accel = 0.01;
   let initialPull = 0.01;
-  let enemyPull = 0.007;
+  let enemyPull = 0.009;
   // Move control box that pulls the player
   if (keys["ArrowUp"]) {
     ship.position.z -= controlSpeed;
@@ -197,6 +210,8 @@ function animate() {
     player.position.z += player.position.z * accel;
     player.position.x -= player.position.x * accel;
     player.position.x += player.position.x * accel;
+    player.position.x += ship.position.x * initialPull;
+    player.position.z += ship.position.z * initialPull;
   }
   //BOUNDING ETERNITY
   if (player.position.x > xMaxBound) {
@@ -249,19 +264,31 @@ function animate() {
     enemy.position.x += ship.position.x * enemyPull;
     enemy.position.z += ship.position.z * enemyPull;
   }
-  if (player) {
-    player.position.x += ship.position.x * initialPull;
-    player.position.z += ship.position.z * initialPull;
-  }
+
   if (true) {
     scene.position.x += 0.00001;
     scene.position.z += 0.00001;
   }
 
-  if (enemy.position.distanceTo(player.position) < 2) {
-    console.log("GAME OVER");
+  if (enemy.position.distanceTo(player.position) < 2.5) {
     gameOver = true;
     deaths += 1;
+  }
+
+  if (gameOver) {
+    console.log("GAME OVER");
+    GAMEOVER[0].innerText = "GAME OVER";
+    RKeyMessage[0].innerText = "Press R to restart";
+    ship.position.set(0, cameraDistance + 2, 0);
+    kills = 0;
+    killCounter[0].innerText = "KILLS " + kills.toString();
+    if (keys["KeyR"]) {
+      camera.position.set(0, cameraDistance, 0);
+      ship.position.set(0, cameraDistance + 2, 0);
+      GAMEOVER[0].innerText = "";
+      RKeyMessage[0].innerText = "";
+      gameOver = false;
+    }
   }
 
   if (bullet) {
@@ -271,6 +298,7 @@ function animate() {
     if (bullet.position.distanceTo(enemy.position) < 2) {
       scene.remove(enemy);
       kills += 1;
+      killCounter[0].innerText = "KILLS " + kills.toString();
       enemy = null;
       enemySpawn();
 
