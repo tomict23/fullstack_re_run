@@ -161,7 +161,7 @@ function animate() {
 
   let accel = 0.01;
   let initialPull = 0.01;
-  let enemyPull = 0.001;
+  let enemyPull = 0.007;
   // Move control box that pulls the player
   if (keys["ArrowUp"]) {
     ship.position.z -= controlSpeed;
@@ -246,16 +246,16 @@ function animate() {
     //follow player, kind of.
     enemy.position.x += player.position.x * initialPull;
     enemy.position.z += player.position.z * initialPull;
-    enemy.position.x -= ship.position.x * enemyPull;
-    enemy.position.z -= ship.position.z * enemyPull;
+    enemy.position.x += ship.position.x * enemyPull;
+    enemy.position.z += ship.position.z * enemyPull;
   }
   if (player) {
     player.position.x += ship.position.x * initialPull;
     player.position.z += ship.position.z * initialPull;
   }
   if (true) {
-    scene.position.x += 0.0001;
-    scene.position.z += 0.0001;
+    scene.position.x += 0.00001;
+    scene.position.z += 0.00001;
   }
 
   if (enemy.position.distanceTo(player.position) < 2) {
